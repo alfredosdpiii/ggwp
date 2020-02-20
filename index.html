@@ -1,0 +1,127 @@
+<html>
+<head>
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <div id="plane">
+        <div class="test-line">
+
+        </div>
+        <div class="points" id="top-left">
+              
+        
+        </div>
+        <div class="points" id="bottom-right">
+       
+            
+        
+        </div>
+        <svg><line id="line1" style="stroke: red"/></svg>
+        
+    </div>
+    <button class="button">CREATE POINT</button>
+    <button id="button2">CREATE LINE</button>
+    <script>
+    $(document).ready(function(){
+        let relativeY = $("#top-left").position().left;
+        let relativeX = $("#bottom-right").position().top;
+        let relativeY2 = $("#top-left").position().top;
+        let relativeX2 = $("#bottom-right").position().left;
+        let connection1 = $("#bottom-right").position().left/2;
+        let connection2 = $("#bottom-right").position().top;
+        // - $("#top-left").position().right;
+        //top left 10 bottom right 480 
+        $('.button').click(function(){
+            var elm = '<div ' +
+                'style="background:red; '+
+                'position:absolute;'+
+                'height: 10px;'+
+                'width: 10px;'+
+                `left:${relativeY}; `+
+                `top:${relativeX};"> `+
+                ''+
+                '</div>';
+                // var elm2 = '<div ' +
+                // 'style="background:red; '+
+                // 'position:absolute;'+
+                // 'height: 10px;'+
+                // 'width: 10px;'+
+                // `left:${relativeX2}; `+
+                // `top:${relativeY2};"> `+
+                // ''+
+                // '</div>';
+                // var elm3 = '<div ' +
+                // 'style="background:yellow; '+
+                // 'position:absolute;'+
+                // 'height: 10px;'+
+                // 'width: 10px;'+
+                // `left:${connection1}; `+
+                // `top:${connection2};"> `+
+                // ''+
+                // '</div>';
+                // var elm3 = '<div ' +
+                // 'style="background:yellow; '+
+                // 'position:absolute;'+
+                // 'height: 10px;'+
+                // 'width: 10px;'+
+                // `left:${connection1}; `+
+                // `top:${connection2};"> `+
+                // ''+
+                // '</div>';
+                var elm4 = '<div ' +
+                'style="background:yellow; '+
+                'position:absolute;'+
+                'height: 10px;'+
+                'width: 10px;'+
+                `left:${connection1}; `+
+                `top:${connection2};"> `+
+                ''+
+                '</div>';
+        $(elm).appendTo($('#plane'));
+        // $(elm2).appendTo($('#plane'));
+        // $(elm3).appendTo($('#plane'));
+        $(elm4).appendTo($('#plane'));
+        console.log(elm)
+        // console.log(elm2)
+        // console.log(elm3)
+        console.log(elm4)
+        
+        });
+
+        $('#top-left').click(function(){
+            varMyPos = $('#top-left').position().left
+            console.log(varMyPos)
+        });
+$('#button2').click(function(){
+line1 = $('#line1');   
+div1 = $('#top-left');   
+div2 = $('#bottom-right');
+var pos1 = div1.position();
+var pos2 = div2.position();
+x1 = pos1.left
+y1 = pos1.top
+x2 = pos2.left
+y2 = pos2.top
+line1
+  .attr('x1', pos1.left)
+  .attr('y1', pos1.top)
+  .attr('x2', pos2.left)
+  .attr('y2', pos2.top);
+console.log(line1);
+
+var css = $('.test-line').css("transform");
+css = css+" scale(-1,1)";
+$('.div-1').css('transform',css);
+})
+        
+
+
+
+
+});
+
+
+    </script>
+</body>
+</html>
